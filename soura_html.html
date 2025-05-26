@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Team</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      color: #333;
+    }
+
+    .about {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .about h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .team-card {
+      background-color: #fff;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .team-card img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .team-card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+    }
+
+    .team-card p {
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .team-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="about">
+    <h1>Meet the Team</h1>
+    <p>We're a dedicated group building user-first digital experiences.</p>
+  </section>
+
+  <section class="team-container" id="teamContainer">
+    <!-- Cards will be injected here by JavaScript -->
+  </section>
+
+  <script>
+    const teamMembers = [
+      {
+        name: "Alice Johnson",
+        role: "Frontend Developer",
+        photo: "https://via.placeholder.com/150"
+      },
+      {
+        name: "Bob Smith",
+        role: "Backend Developer",
+        photo: "https://via.placeholder.com/150"
+      },
+      {
+        name: "Clara Davis",
+        role: "UI/UX Designer",
+        photo: "https://via.placeholder.com/150"
+      }
+    ];
+
+    const container = document.getElementById("teamContainer");
+
+    teamMembers.forEach(member => {
+      const card = document.createElement("div");
+      card.className = "team-card";
+      card.innerHTML = `
+        <img src="${member.photo}" alt="${member.name}" />
+        <h3>${member.name}</h3>
+        <p>${member.role}</p>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
